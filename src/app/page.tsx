@@ -168,6 +168,7 @@ export default function Presentation() {
           <h1
             style={{
               fontSize: '5rem',
+              textShadow: 'none',
             }}
           >System Construction</h1>
         </Slide>
@@ -183,7 +184,13 @@ export default function Presentation() {
               fontSize: '5rem',
             }}>System Construction</h1>
 
-          <Image src="/diagram.png" alt="Software Construction Diagram" width={800} height={600} />
+          <Image src="/diagram.png" alt="Software Construction Diagram" width={800} height={500} style={{
+            borderRadius: '10px',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            marginTop: '2rem',
+            objectFit: 'cover',
+            objectPosition: 'top',
+          }} />
         </Slide>
         <Slide
           data-id="software-solution"
@@ -195,6 +202,7 @@ export default function Presentation() {
             style={{
               color: 'white',
               fontSize: '5rem',
+              textShadow: 'none',
             }}>Software Solution</h1>
         </Slide>
         <Slide
@@ -251,6 +259,7 @@ export default function Presentation() {
             style={{
               color: 'white',
               fontSize: '5rem',
+              textShadow: 'none',
             }}
           >
             Strengths & Limits
@@ -395,6 +404,7 @@ export default function Presentation() {
         >
           <h1
             style={{
+              textShadow: 'none'
             }}
           >
             Extensibility
@@ -524,6 +534,7 @@ export default function Presentation() {
               style={{
                 color: 'white',
                 fontSize: '6rem',
+                textShadow: 'none',
               }}
             >Requirements</h1>
           </Slide>
@@ -607,10 +618,25 @@ export default function Presentation() {
             <p>
               1. The application interface should look similar to established trading platforms to familiarize the user with a typical trading environment. The user interface shall also meet at least a 90 on the accessibility score when measured against accessibility checkers like Chrome Lighthouse to ensure usability and readability for everyone.
             </p>
-            <Image src={"/req-2-pic.png"} alt="Rec Pic 1" width={800} height={600} style={{
-              borderRadius: '10px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-            }} />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '2rem',
+              }}  
+            >
+              <Image src={"/lighthouse.png"} alt="Lighthouse Accessibility Score" width={500} height={800} style={{
+                borderRadius: '10px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                marginLeft: '2rem',
+              }} />
+              <Image src={"/req-2-pic.png"} alt="Rec Pic 1" width={800} height={600} style={{
+                borderRadius: '10px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              }} />
+            </div>
           </Slide>
           <Slide
             data-id="requirements"
@@ -682,7 +708,11 @@ export default function Presentation() {
           data-background-color="#f0f0f0"
           data-id="design-improvements"
         >
-          <h1>Design Improvements</h1>
+          <h1
+            style={{
+              textShadow: 'none',
+            }}
+          >Design Improvements</h1>
           <div
             style={{
               display: 'flex',
@@ -744,6 +774,7 @@ export default function Presentation() {
             style={{
               color: 'white',
               fontSize: '8rem',
+              textShadow: 'none',
             }}
           >Future Work</h1>
           <div

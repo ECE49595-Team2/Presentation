@@ -7,12 +7,16 @@ export default function DemoSlide() {
         <Slide
             data-background-color="orange"
         >
-            <h1
-                style={{
-                    color: 'white',
-                    fontSize: '8rem',
-                }}
-            >Demo</h1>
-        </Slide>
+            <a href="https://stocksensai.com"
+                data-preview-link>
+                <h1
+                    style={{
+                        color: 'white',
+                        fontSize: '8rem',
+                        textShadow: 'none'
+                    }}
+                >Demo</h1>
+            </a>
+        </Slide >
     )
 }
