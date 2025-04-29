@@ -25,4 +25,4 @@ jobs:
     - name: Build & push
       run: |
         docker build -t ghcr.io/ece49595-team2/presentation:latest ./src
-        docker push ghcr.io/ece49595-team2/presentation:latest ./src
+        docker push ghcr.io/ece49595-team2/presentation:latest
