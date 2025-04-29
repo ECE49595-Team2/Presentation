@@ -1,103 +1,811 @@
+"use client";
+import { useEffect } from "react";
 import Image from "next/image";
+import "reveal.js/dist/reveal.css";
+import "./theme.scss";
+import TitleSlide from "./slides/title-slide";
+import Slide from "./slide";
+import * as lucide from "lucide-react";
+import DemoSlide from "./slides/demo-slide";
 
-export default function Home() {
+export default function Presentation() {
+  useEffect(() => {
+    import('reveal.js').then(({ default: Reveal }) => {
+      const deck = new Reveal();
+      deck.initialize({
+        width: '100%',
+        height: '100%',
+        margin: 0,
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'zoom',
+        autoAnimateEasing: 'cubic-bezier(0.1, 1, 0.1, 1)',
+        transitionSpeed: 'fast',
+        backgroundTransition: 'slide',
+        slideNumber: true,
+        navigationMode: 'linear'
+      });
+    });
+  });
+
+  // ▪ Present your pitch (product story)
+  // ▪ Provide a vision of the future of the project
+  // ▪ Introduce updates since the last presentation
+  // ▪ Demonstrate completeness
+  // ▪ Show how your project is production-ready
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="reveal">
+      <div
+        className="slides"
+        style={{
+          width: '100vw !important',
+          height: '100vh !important',
+        }}
+      >
+        <TitleSlide />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* overview slide */}
+        {/* ▪ Present your pitch (product story) */}
+        {/* ▪ Provide a vision of the future of the project */}
+        {/* ▪ Introduce updates since the last presentation */}
+        {/* ▪ Demonstrate completeness */}
+        {/* ▪ Show how your project is production-ready */}
+        <Slide
+          data-id="original-challenge"
+          data-transition="zoom"
+        >
+          <Slide data-auto-animate>
+            <div>
+              <h1 data-id="challenge"
+                style={{
+                  color: 'white',
+                  textShadow: 'none',
+
+                }}
+              >Original Challenge</h1>
+            </div>
+          </Slide>
+
+          <Slide data-auto-animate>
+            <div>
+              <h1 data-id="challenge"
+                style={{
+                  color: 'white',
+                  textShadow: 'none',
+                  fontSize: '5rem',
+                }}
+              >Original Challenge</h1>
+              <h2
+                style={{
+                  color: 'white',
+                  textShadow: 'none',
+                  fontSize: '8rem',
+                }}
+              >Investing is intimidating</h2>
+            </div>
+          </Slide>
+          <Slide
+            data-id="original-challenge"
+            data-auto-animate
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div>
+              <h1 data-id="challenge"
+                style={{
+                  color: 'lightgrey',
+                  textShadow: 'none',
+                  fontSize: '3rem',
+                }}
+              >Original Challenge</h1>
+              <h2
+                style={{
+                  color: 'lightgrey',
+                  textShadow: 'none',
+                  fontSize: '3.5rem',
+                }}
+              >Investing is intimidating</h2>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '2rem',
+                }}
+              >
+                <div style={{
+                  position: 'relative',
+                }}
+                >
+                  <lucide.X size={120} color="red"
+                    style={{
+                      position: 'absolute',
+
+                    }}
+                  />
+                  <lucide.Map size={120} color="white" />
+                </div>
+                <h2
+                  style={{
+                    color: 'white',
+                    textShadow: 'none',
+                    fontSize: '6rem',
+                  }}
+                >
+                  Existing apps = no guidance
+                </h2>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '2rem',
+                }}
+              >
+                <lucide.Frown size={120} color="white" />
+                <h2
+                  style={{
+                    color: 'white',
+                    textShadow: 'none',
+                    fontSize: '6rem',
+                  }}
+                >Simulators = no assistance</h2>
+              </div>
+            </div>
+          </Slide>
+        </Slide>
+        <Slide
+          data-background-color="#f0f0f0"
+          data-id="system-construction"
+          data-transition="zoom"
+          data-auto-animate-restart
+          data-auto-animate
+        >
+          <h1
+            style={{
+              fontSize: '5rem',
+            }}
+          >System Construction</h1>
+        </Slide>
+        <Slide
+          data-id="system-construction"
+          data-transition="zoom"
+          data-auto-animate
+        >
+          <h1
+            style={{
+              color: 'white',
+              textShadow: 'none',
+              fontSize: '5rem',
+            }}>System Construction</h1>
+
+          <Image src="/diagram.png" alt="Software Construction Diagram" width={800} height={600} />
+        </Slide>
+        <Slide
+          data-id="software-solution"
+          data-transition="zoom"
+          data-auto-animate
+          data-auto-animate-restart
+        >
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '5rem',
+            }}>Software Solution</h1>
+        </Slide>
+        <Slide
+          data-id="software-solution"
+          data-transition="zoom"
+          data-background-color="#f0f0f0"
+          data-auto-animate
+        >
+          <h1
+            style={{
+              textShadow: 'none',
+              fontSize: '3rem',
+            }}>Software Solution</h1>
+          <ul
+            style={{
+              color: 'black',
+              textShadow: 'none',
+              fontSize: '3rem',
+              listStyleType: 'none',
+              padding: 0,
+              margin: 0,
+            }}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <li>All skill ranges</li>
+            <li>
+              <hr
+                style={{
+                  border: '1px solid orange',
+                  width: '80%',
+                  margin: '1rem auto',
+                }}
+              />
+            </li>
+            <li>Useful, easy-access information</li>
+            <li>
+              <hr
+                style={{
+                  border: '1px solid orange',
+                  width: '80%',
+                  margin: '1rem auto',
+                }}
+              />
+            </li>
+            <li>Benefits of open source</li>
+          </ul>
+        </Slide>
+        <Slide
+          data-id="strengths-limits"
+          data-transition="zoom"
+          data-auto-animate
+          data-auto-animate-restart
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '5rem',
+            }}
+          >
+            Strengths & Limits
+          </h1>
+        </Slide>
+        <Slide
+          data-id="strengths-limits"
+          data-transition="zoom"
+          data-auto-animate
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div>
+            <h1
+              style={{
+                color: 'lightgrey',
+                textShadow: 'none',
+                fontSize: '3rem',
+              }}
+            >
+              Strengths & Limits
+            </h1>
+            <table
+              style={{
+                width: '80%',
+                margin: '2rem auto',
+                borderCollapse: 'collapse',
+                color: 'white',
+                fontSize: '1.7rem',
+              }}
+            >
+              <thead>
+                <tr>
+                  <th
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      backgroundColor: '#333',
+                    }}
+                  >
+                    Strengths
+                  </th>
+                  <th
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      backgroundColor: '#333',
+                    }}
+                  >
+                    Limits
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Chat, news analysis, and other LLM features offer comprehensive guidance for making investment decision.
+                  </td>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Only one predefined investing algorithm and one user-defined algorithm.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Ability to buy and sell stocks across multiple portfolios allows users to invest to their hearts content and play around with as many strategies as they desire.
+                  </td>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Limited to 200 free requests to llm per day, could be scaled/sped up with more money
+
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                    UI is easy to use and makes it simple to get started quickly.
+
+                  </td>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Users are able to see how the predefined strategy performs on historical data to see if they want to start it on a particular stock.
+                  </td>
+                  <td
+                    style={{
+                      border: '1px solid white',
+                      padding: '1rem',
+                      textAlign: 'center',
+                    }}
+                  >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Slide>
+        <Slide
+          data-id="extensibility"
+          data-auto-animate
+          data-auto-animate-restart
+          data-background-color="#f0f0f0"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h1
+            style={{
+            }}
+          >
+            Extensibility
+          </h1>
+        </Slide>
+        <Slide
+          data-id="extensibility"
+          data-auto-animate
+        >
+          <h1
+            style={{
+              textShadow: 'none',
+              color: 'lightgrey',
+              fontSize: "3rem"
+            }}
+          >
+            Extensibility
+          </h1>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '2rem',
+              }}
+            >
+              <lucide.ChartArea size={90} width={200} color="white" />
+              <p
+                style={{
+                  color: 'white',
+                  textShadow: 'none',
+                  fontSize: '1.5rem',
+                  maxWidth: '600px',
+                  textAlign: 'left'
+                }}
+              >
+                Users can add their own strategies and test them using existing framework in the repository.
+              </p>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '2rem',
+              }}
+            >
+              <Image src={"/docker.png"} alt="Docker Logo" width={200} height={100} />
+              <p
+                style={{
+                  color: 'white',
+                  textShadow: 'none',
+                  fontSize: '1.5rem',
+                  maxWidth: '600px',
+                  textAlign: 'left'
+                }}
+              >
+                Containerization of the components allows each to be completely independent, simplifying future development and deployment.
+
+              </p>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '2rem',
+              }}
+            >
+              <lucide.Bot size={90} width={200} color="white" />
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'start',
+                  justifyContent: 'center',
+                }}
+              >
+                <p
+                  style={{
+                    color: 'white',
+                    textShadow: 'none',
+                    fontSize: '1.5rem',
+                    maxWidth: '600px',
+                    textAlign: 'left'
+                  }}
+                >
+                  Preferences can be set to use the state of the art open source LLM models (LLAMA 70B, DeepSeek R1/V3)
+                </p>
+                <div
+                  style={{
+                    backgroundColor: 'white',
+                    borderRadius: '10px',
+                    padding: '1rem',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '5rem',
+                  }}
+                >
+                  <Image src={"/llama.png"} alt="Llama Logo" width={200} height={100} />
+                  <Image src={"/deepseek.png"} alt="DeepSeek Logo" width={200} height={100} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Slide>
+        <Slide
+          data-id="requirements"
+        >
+          <Slide
+            data-id="requirements"
+            data-auto-animate
+            data-auto-animate-restart
+          >
+            <h1
+              style={{
+                color: 'white',
+                fontSize: '6rem',
+              }}
+            >Requirements</h1>
+          </Slide>
+          <Slide
+            data-id="requirements"
+            data-auto-animate
+            data-background-color="#f0f0f0"
+          >
+            <h1
+              style={{
+                textShadow: 'none',
+                fontSize: '3rem',
+              }}
+            >
+              Requirements
+            </h1>
+            <p>
+              3. The user should be able to interact with a specialized LLM that gives the user information about the stock and comes to a conclusion about whether the user should buy, sell, or hold said stock.
+            </p>
+            <Image src={"/news-analysis.png"} alt="News Analysis" width={800} height={600} style={{
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            }} />
+          </Slide>
+          <Slide
+            data-id="requirements"
+            data-auto-animate
+            data-background-color="#f0f0f0"
+          >
+            <h1
+              style={{
+                textShadow: 'none',
+                fontSize: '3rem',
+              }}
+            >
+              Requirements
+            </h1>
+            <p>
+              2. The user interface should be able to display and select any stock with a ticker and have that stock show up in their portfolio. The application should then be able to look up the current value of the stocks owned by the user and compare it to the original account balance to show gains/losses.
+            </p>
+            <Image src={"/ticker.png"} alt="Rec Pic 2" width={800} height={300} style={{
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            }} />
+          </Slide>
+          <Slide
+            data-id="requirements"
+            data-auto-animate
+            data-background-color="#f0f0f0"
+          >
+            <h1
+              style={{
+                textShadow: 'none',
+                fontSize: '3rem',
+              }}
+            >
+              Requirements
+            </h1>
+            <p>
+              4. The application should support investment strategies that are automatically executed without user intervention. The user should be able to switch between manual trading and automatic trading whenever they desire.
+
+            </p>
+            <Image src={"/stats.png"} alt="Rec Pic 1" width={1300} height={190} style={{
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            }} />
+          </Slide>
+          <Slide
+            data-id="requirements"
+            data-auto-animate
+            data-background-color="#f0f0f0"
+          >
+            <h1
+              style={{
+                textShadow: 'none',
+                fontSize: '3rem',
+              }}
+            >
+              Requirements
+            </h1>
+            <p>
+              1. The application interface should look similar to established trading platforms to familiarize the user with a typical trading environment. The user interface shall also meet at least a 90 on the accessibility score when measured against accessibility checkers like Chrome Lighthouse to ensure usability and readability for everyone.
+            </p>
+            <Image src={"/req-2-pic.png"} alt="Rec Pic 1" width={800} height={600} style={{
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            }} />
+          </Slide>
+          <Slide
+            data-id="requirements"
+            data-auto-animate
+            data-transition="slide-in"
+            data-background-color="#f0f0f0"
+          >
+            <h1
+              style={{
+                textShadow: 'none',
+                fontSize: '3rem',
+              }}
+            >
+              Requirements
+            </h1>
+            <p>
+              5. The application should keep track of multiple portfolios per user to enable the user to try out different strategies and switch seamlessly between them.
+            </p>
+            <Image src={"/portfolio.png"} alt="Portfolio" width={800} height={200} style={{
+              borderRadius: '10px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            }} />
+          </Slide>
+        </Slide>
+        <Slide
+          data-id="updates"
+          data-transition="slide-in"
+        >
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '5rem',
+            }}
+          >Updates since Midterm</h1>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateRows: 'repeat(2, 1fr)',
+              gap: '2rem',
+              padding: '2rem',
+              color: 'white'
+            }}
+          >
+            <div>
+              <lucide.GitPullRequest size={90} color="white" />
+              <p>Integration</p>
+            </div>
+            <div>
+              <lucide.Bot size={90} color="white" />
+              <p>Single-Sentence Summary</p>
+            </div>
+            <div>
+              <lucide.ChartBar size={90} color="white" />
+              <p>Automatic strategy execution</p>
+            </div>
+            <div>
+              <lucide.ChartColumnIncreasingIcon size={90} color="white" />
+              <p>Displaying performance across multiple portfolios</p>
+            </div>
+            <div
+            >
+              <lucide.Palette size={90} color="white" />
+              <p>Selection between different models for LLM endpoints</p>
+            </div>
+          </div>
+        </Slide>
+        <Slide
+          data-background-color="#f0f0f0"
+          data-id="design-improvements"
+        >
+          <h1>Design Improvements</h1>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2rem',
+              padding: '2rem',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10rem',
+                textAlign: 'left',
+              }}
+            >
+              <lucide.Hammer size={90} color="black" />
+              <p
+                style={{
+                  color: 'black',
+                  fontSize: '1.5rem',
+                  maxWidth: '600px',
+                }}
+              >
+                For algo trader, clean and simple strategy definition that uses backtesting library for easy additional strategy definitions. Backtester runner that displays bargraph of performance over time of strategies for strategy development. Cleaner API definition to make integration easier.
+              </p>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10rem',
+                textAlign: 'left',
+              }}
+            >
+              <lucide.Bot size={90} color="black" />
+              <p
+                style={{
+                  color: 'black',
+                  fontSize: '1.5rem',
+                  maxWidth: '600px',
+                }}
+              >
+                For LLM backend, added threading to handle more requests and the DeepSeek series of models
+              </p>
+            </div>
+          </div>
+        </Slide>
+        <Slide
+          data-id="future-work"
+        >
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '8rem',
+            }}
+          >Future Work</h1>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2rem',
+              padding: '2rem',
+              color: 'white'
+            }}
+          >
+            <lucide.Combine size={90} color="white" />
+            <p
+              style={{
+                maxWidth: '700px',
+                textAlign: 'left',
+              }}
+            >Integrate full perspective analysis</p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2rem',
+              padding: '2rem',
+              color: 'white',
+            }}
+          >
+            <lucide.ChartPieIcon size={90} color="white" />
+            <p
+              style={{
+                maxWidth: '700px',
+                textAlign: 'left',
+              }}
+            >Add visualization of algorithmic trading strategy run on historical data</p>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '2rem',
+              padding: '2rem',
+              color: 'white'
+            }}
+          >
+            <lucide.Palette size={90} color="white" />
+            <p
+              style={{
+                maxWidth: '700px',
+                textAlign: 'left',
+              }}
+            >Design a more flexible strategy that users can tweak parameters on and run automatically</p>
+          </div>
+        </Slide>
+        <DemoSlide />
+      </div>
+    </div >
   );
 }
