@@ -1,6 +1,5 @@
 "use client";
 import Slide from "../slide";
-import * as lucide from "lucide-react";
 
 export default function DemoSlide() {
 
